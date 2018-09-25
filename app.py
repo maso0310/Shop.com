@@ -31,38 +31,10 @@ def callback():
     return 'OK'
 
 # 處理訊息
-@handler.add(MessageEvent, message=(TextMessage, ImageMessage))
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-#將收到的訊息上傳至Imgur空間
-    if  isinstance(event.message, ImageMessage):
-        ext = 'jpg'
-        message_conent = line_bot_api.get_message_content(event.message.id)        
-        
-
-        callback = TemplateSendMessage(
-          alt_text='Buttons template',
-          template=ButtonsTemplate(
-            thumbnail_image_url='https://pic.pimg.tw/annaivy/4ace1761e1831.jpg',
-            title='褐飛蝨蟲害判別結果',
-            text='危害等級：尚無資料',
-            actions=[
-            PostbackTemplateAction(
-                label='有幾隻褐飛蝨?',
-                text='我還不會計算',
-                data='action=buy&itemid=2'
-            ),
-            MessageTemplateAction(
-                label='建議用藥',
-                text='農特寧'
-            ),
-            URITemplateAction(
-                label='相關資訊',
-                uri='https://n.yam.com/Article/20131016823426'
-            )
-        ]
-    )
-)
-        line_bot_api.reply_message(event.reply_token, callback)
+    message = TextSendMessage(text=event.message.text)
+    line_bot_api.reply_message(event.reply_token, message)
 
 import os
 if __name__ == "__main__":
