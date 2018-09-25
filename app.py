@@ -10,11 +10,10 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-#嘗試讓購物機器人復活
 # Channel Access Token
-line_bot_api = LineBotApi('295PO7c2FbLmq2jHznxmISTQciVcWy7DnEIArWCgSUKWPsorlKbbuRURYIYxWZYJXjlQ2Wj9Ik8nwuAz2qB2rc4EfKN56kdvBERkjx7F1OOPsjx8cdCNGhoLQtVfAR+TrFsuw73JsEKI2IA9gE719gdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('TNwu7tqho7m8MnMSmG8jpAF8tWl+hzBQzb/JKdbDBJv3HkMAUJiz8uo0nS0hG89tbsjQk8IV02p/v5ChZ1txRKjMlvPufgBPak5Y5AEwJt84wc9Mocg+yeZ8oyRQcfwFKnfmNaNRJR27Qc9r6iY38AdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('6baf8c3075c7c10d98b7f1d4afcf2146')
+handler = WebhookHandler('d184dfc3ec38e22fb7edf6b7275023a8')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
