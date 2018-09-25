@@ -10,6 +10,7 @@ from linebot.models import *
 
 app = Flask(__name__)
 
+#嘗試讓購物機器人復活
 # Channel Access Token
 line_bot_api = LineBotApi('295PO7c2FbLmq2jHznxmISTQciVcWy7DnEIArWCgSUKWPsorlKbbuRURYIYxWZYJXjlQ2Wj9Ik8nwuAz2qB2rc4EfKN56kdvBERkjx7F1OOPsjx8cdCNGhoLQtVfAR+TrFsuw73JsEKI2IA9gE719gdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
