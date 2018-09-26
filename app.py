@@ -36,6 +36,7 @@ def callback():
 def handle_message(event):
     resp = requests.get('http://tw.shop.com/maso0310/search'+event.message.text)
     print(resp.text)
+    print(resp.status_code)
     if resp and state_code == 200:
         soup = BeautifulSoup(resp.text, 'html.parser')
         product_info = soup.find_all('div', 'product-results__prod-info-m')
