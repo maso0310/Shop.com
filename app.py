@@ -34,6 +34,9 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36',
+    }
     resp = requests.get('http://tw.shop.com/maso0310/search'+event.message.text)
     print(resp.text)
     print(resp.status_code)
