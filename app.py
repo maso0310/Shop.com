@@ -43,7 +43,7 @@ def handle_message(event):
             print(a)
             line_bot_api.reply_message(event.reply_token, a)
     except Exception as e:
-        return fail
+        return '失敗了'
 
 import os
 if __name__ == "__main__":
