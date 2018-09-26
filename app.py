@@ -53,7 +53,7 @@ def movie():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == '我想買'+ a:
+    if event.message.text == '我想買' :
         a=event.message.text - '我想買'
         url = 'https://tw.shop.com/maso0310/search/'+ a
         print(url)
