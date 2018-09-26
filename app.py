@@ -7,6 +7,10 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+import requests
+from lxml import html
+from bs4 import BeautifulSoup as bs
+
 
 app = Flask(__name__)
 
@@ -23,6 +27,7 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
+    print("Request body: " + body, "Signature: " + signature)
     # handle webhook body
     try:
         handler.handle(body, signature)
@@ -33,14 +38,8 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    import request
     url = 'https://tw.shop.com/maso0310/search/'+event.message.text
-    request = request.GET(url)
-    request.add_headers("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36")
-    print(res.text)
-    print(res)
-    print(response.body)
-    line_bot_api.reply_message(event.reply_token, res)
+    line_bot_api.reply_message(event.reply_token, url)
 
 import os
 if __name__ == "__main__":
