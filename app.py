@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, request, abort
 
 from linebot import (
@@ -7,9 +8,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import requests
 from lxml import html
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
 
 
 app = Flask(__name__)
@@ -35,11 +35,29 @@ def callback():
         abort(400)
     return 'OK'
 
+def movie():
+    target_url = 'https://movies.yahoo.com.tw/'
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    res.encoding = 'utf-8'
+    soup = BeautifulSoup(res.text, 'html.parser')   
+    content = ""
+    for index, data in enumerate(soup.select('div.movielist_info h1 a')):
+        if index == 20:
+            return content       
+        title = data.text
+        link =  data['href']
+        content += '{}\n{}\n'.format(title, link)
+    return content
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    if event.message.text == '最新電影':
+    a=movie()
     url = 'https://tw.shop.com/maso0310/search/'+event.message.text
-    line_bot_api.reply_message(event.reply_token, url)
+    print(url)
+    line_bot_api.reply_message(event.reply_token, (text=a))
 
 import os
 if __name__ == "__main__":
