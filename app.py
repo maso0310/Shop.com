@@ -53,8 +53,8 @@ def movie():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == '最新電影':
-        a=movie()
+    if event.message.text == '我想買'+ a:
+        a=()
         url = 'https://tw.shop.com/maso0310/search/'+event.message.text
         print(url)
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=url))
