@@ -1,5 +1,5 @@
 from flask import Flask, request, abort
-import request
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -33,9 +33,10 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    import request
     url = 'https://tw.shop.com/maso0310/search/'+event.message.text
     request = request.GET(url)
-    request.add_header("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36")
+    request.add_headers("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36")
     print(res.text)
     print(res)
     print(response.body)
