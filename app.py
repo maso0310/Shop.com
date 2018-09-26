@@ -33,7 +33,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    url = 'https://tw.shop.com/maso0310/search/'+event.message.text)
+    url = 'https://tw.shop.com/maso0310/search/'+event.message.text
     line_bot_api.reply_message(event.reply_token, url)
 
 import os
