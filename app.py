@@ -40,7 +40,7 @@ def callback():
 def handle_message(event):
     if event.message.text == '我想買' :
         print(event.message.text)
-        url = 'https://tw.shop.com/maso0310/search/'+ event.message.text -'我想買'
+        url = 'https://tw.shop.com/maso0310/search/'+ event.message.text
         print(url)
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=url))
 
