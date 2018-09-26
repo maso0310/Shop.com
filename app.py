@@ -41,8 +41,9 @@ def handle_message(event):
         for s in product_info:
             a = s.text
             print(a)
-
-    line_bot_api.reply_message(event.reply_token, a)
+            line_bot_api.reply_message(event.reply_token, a)
+    except Exception as e:
+        return fail
 
 import os
 if __name__ == "__main__":
