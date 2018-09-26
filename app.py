@@ -36,7 +36,7 @@ def handle_message(event):
     res = requests.get('https://tw.shop.com/maso0310/search/'+event.message.text)
     print(res.text)
     print(res)
-    print(response_body)
+    print(response.body)
     line_bot_api.reply_message(event.reply_token, res)
 
 import os
