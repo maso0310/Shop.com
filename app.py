@@ -1,6 +1,5 @@
-import requests
 from flask import Flask, request, abort
-
+import request
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -8,9 +7,6 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from urllib.request import urlretrieve
-from bs4 import BeautifulSoup
-
 
 app = Flask(__name__)
 
@@ -27,7 +23,6 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-    print("Request body: " + body, "Signature: " + signature)
     # handle webhook body
     try:
         handler.handle(body, signature)
@@ -38,11 +33,8 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == '我想買' :
-        print(event.message.text)
-        url = 'https://tw.shop.com/maso0310/search/'+ event.message.text
-        print(url)
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=url))
+    url = 'https://tw.shop.com/maso0310/search/'+event.message.text)
+    line_bot_api.reply_message(event.reply_token, url)
 
 import os
 if __name__ == "__main__":
