@@ -8,7 +8,6 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from lxml import html
 from urllib.request import urlretrieve
 from bs4 import BeautifulSoup
 
