@@ -35,26 +35,13 @@ def callback():
         abort(400)
     return 'OK'
 
-def movie():
-    target_url = 'https://tw.shop.com/maso0310'
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')   
-    content = ""
-    for index, data in enumerate(soup.select('div.movielist_info h1 a')):
-        if index == 20:
-            return content       
-        title = data.text
-        link =  data['href']
-        content += '{}\n{}\n'.format(title, link)
-    return content
-
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == '我想買' :
+        print(event.message.text)
         a=event.message.text - '我想買'
+        print(a)
         url = 'https://tw.shop.com/maso0310/search/'+ a
         print(url)
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=url))
