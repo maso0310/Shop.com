@@ -58,7 +58,7 @@ def handle_message(event):
         a=movie()
         url = 'https://tw.shop.com/maso0310/search/'+event.message.text
         print(url)
-    line_bot_api.reply_message(event.reply_token, (text=a))
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
 
 import os
 if __name__ == "__main__":
