@@ -36,7 +36,7 @@ def callback():
     return 'OK'
 
 def movie():
-    target_url = 'https://movies.yahoo.com.tw/'
+    target_url = 'https://tw.shop.com/maso0310'
     rs = requests.session()
     res = rs.get(target_url, verify=False)
     res.encoding = 'utf-8'
@@ -57,7 +57,7 @@ def handle_message(event):
         a=movie()
         url = 'https://tw.shop.com/maso0310/search/'+event.message.text
         print(url)
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=url))
 
 import os
 if __name__ == "__main__":
