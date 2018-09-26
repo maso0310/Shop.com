@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
-
+import requests
+from bs4 import BeautifulSoup
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -33,8 +34,13 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
+    resp = requests.get('http://tw.shop.com/maso0310/search'+event.message.text)
+    if resp and state_code == 200:
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        product_info = soup.find_all('div', 'product-results__prod-info-m')
+        [s for s in product_info]
+
+    line_bot_api.reply_message(event.reply_token, s)
 
 import os
 if __name__ == "__main__":
