@@ -36,7 +36,7 @@ def callback():
 def handle_message(event):
     headers = {
         'User-Agent': 'python 3.7.0',
-    }
+}
     resp = requests.get('http://tw.shop.com/maso0310/search'+event.message.text)
     print(resp.text)
     print(resp.status_code)
