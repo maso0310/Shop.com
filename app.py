@@ -40,7 +40,7 @@ def handle_message(event):
     url = 'https://tw.shop.com/maso0310/search'+event.message.text
     randdom_header = random.choice(UserAgent)
     print(randdom_header)
-    resp = requests.get(url , headers = a)
+    resp = requests.get(url , headers = randdom_header)
     print(resp.text)
     print(resp.status_code)
 
