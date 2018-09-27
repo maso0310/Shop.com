@@ -40,10 +40,6 @@ def handle_message(event):
     url = 'https://tw.shop.com/maso0310/search'+event.message.text
     randdom_header=random.choice(my_headers)
 
-    req.add_header("User-Agent",randdom_header)
-    req.add_header("Host","e-hentai.org")
-    req.add_header("Referer","https://tw.shop.com")
-
     resp = requests.get(url , headers = randdom_header)
     print(resp.headers)
     print(resp.text)
