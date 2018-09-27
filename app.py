@@ -42,7 +42,7 @@ def handle_message(event):
     print(resp.status_code)
     if resp and state_code == 200:
         soup = BeautifulSoup(resp.text, 'html.parser')
-        product_info = soup.find_all('div', 'product-results__prod-info-m')
+        product_info = soup.find_all('H1')
         for s in product_info:
             a = s.text
             print(a)
