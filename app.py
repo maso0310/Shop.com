@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 import requests
-import urllib3
+import urllib2
 import random
 from bs4 import BeautifulSoup
 from linebot import (
