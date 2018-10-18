@@ -46,13 +46,7 @@ def handle_message(event):
     print(resp.text)
     print(resp.status_code)
 
-    if resp and state_code == 200:
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        product_info = soup.find_all('div','product-results__prod-info-m')
-        for s in product_info:
-            a = s.text
-            print(a)
-            line_bot_api.reply_message(event.reply_token, a)
+    line_bot_api.reply_message(event.reply_token, a)
 
 
 import os
