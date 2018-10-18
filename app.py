@@ -56,7 +56,7 @@ def handle_message(event):
         'siteID':siteID,
         'countryCode':countryCode,
         'countryCurrency':countryCurrency,
-        'currency-template':currency-template,
+        #'currency-template':currency-template,
         'promoSetMenuId':promoSetMenuId,
         'pageURL':pageURL,
         'copyUrlDirections':copyUrlDirections,
