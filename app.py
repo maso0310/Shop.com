@@ -38,7 +38,12 @@ def callback():
 def handle_message(event):
     url_get = "https://tw.shop.com/"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
-    
+    get_headers = {
+        'Strict-Transport-Security':'max-age=63072000',
+        'X-Akamai-Transformed':'9 - 0 pmb=mTOE,3',
+        'Set-Cookie':'bm_mi=20FD1B4223293A37AC069EF503D09C85~KwiCkGrbYcrrljQBTQRDunSk8woRNrWDt4gvAMnioV5KClmV232P0rGEcbar1Jj92Jk5nAeiVD49qQr6jfk/6KeizRNikIHkXpphGhKnW3VMJG9ZU8mKWDBEBb4fxZSUR9quDF5Nv12CjvT/aZPxvlVbRe19b33eLIeeXRL74qeBb+xk/RMWb8jUdG9qxlxwVmK9RTCMU3dOnWd2RScHGQ==; Domain=.shop.com; Path=/; Max-Age=6521; HttpOnly',
+        'Set-Cookie':'bm_sv=46127B2A4F99DE40CE6086289E3D0284~1iNajwGALBYwIChkVdis9WRqpN1sdoM5rMvddO4on+TI7BHxhQHQr7BLFEoA7NK14mJ9qOWxnzkCwSyQBPbuOkkNq4c7/A+18gRAW1WDguG/DSJmXHOKnOu8c5DUfhf8hzx3l/TcqqJ3+GrcfgDU8A==; Domain=.shop.com; Path=/; Max-Age=6531; HttpOnly'
+    }
     get_data ={
         'COUNTRY_MATCH':'ture',
         'AMOS_OKTOCACHE':'false',
@@ -60,7 +65,7 @@ def handle_message(event):
         'CC_PORTALID':'1345008'
     }
 
-    get_cookie = requests.get(url_get,data=get_data)
+    get_cookie = requests.get(url_get,data=get_data,headers=get_headers)
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
