@@ -49,7 +49,7 @@ def handle_message(event):
         'CC_PORTALID':'1345008'
     }
 
-    get_cookie = requests.get(url_get,data=get_data,headers=get_headers,proxies={'https':'https://220.130.205.58:8080'})
+    get_cookie = requests.get(url_get,data=get_data,headers=get_headers,proxies={'https':'https://123.110.185.95:8888'})
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
@@ -79,7 +79,7 @@ def handle_message(event):
         'Set-Cookie':'bm_mi=4DF817D9AA6A52D203AE7B7C771D88F1~1sMJHW9TcIHLUumH+Wq2QEWs16dq00CKeQ6XIPi0cYi9j/PWEpOQzDajd0hfHZABB9XAJ8nF8+ZTT0yyhFGHGbcatJXmvgJg7q21eHNanECaAXqqQ+71tLNA00xqStOu2SVrV3JL1iqTNC1matdxHNpJdviyu0pMlV0BXtRHDrkRyKaTTkymk3es+3T8od9WUJNsUVC1IHGu3A73cbKb1A==; Domain=.shop.com; Path=/; Max-Age=7111; HttpOnly',
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'    
     }
-    resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'https://220.130.205.58:8080'})
+    resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'https://123.110.185.95:8888'})
     print(resp.status_code)
     resp_soup = BeautifulSoup(resp.text,'html.parser')
     price = resp_soup.find('div','product-results__final-price-m')
