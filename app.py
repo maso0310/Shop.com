@@ -41,7 +41,7 @@ def handle_message(event):
 
     get_cookie = requests.get(url_get)
     soup_get = BeautifulSoup(res_get.text,'html.parser')
-
+    print(get_cookie.status_code)
     siteID = soup_get.find(id='siteID')['value']
     countryCode = soup_get.find(id='countryCode')['value']
     countryCurrency = soup_get.find(id='countryCurrency')['value']
