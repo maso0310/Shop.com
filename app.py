@@ -38,8 +38,13 @@ def callback():
 def handle_message(event):
     url_get = "https://tw.shop.com/"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
+    
+    get_data ={
+        'countryCurrency':'TWN',
+        'countryCode':'zh-TW'
+    }
 
-    get_cookie = requests.get(url_get,proxies={'https':'https://211.21.120.163:8080'},data={'countryCurrency':'TWN','countryCode':'zh-TW'})
+    get_cookie = requests.get(url_get,data=get_data)
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
