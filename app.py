@@ -36,7 +36,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    url_get = "https://tw.shop.com"
+    url_get = "https://tw.shop.com/maso0310"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
     get_headers = {
         'accept-language':'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
