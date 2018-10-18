@@ -40,8 +40,8 @@ def handle_message(event):
     url_post = 'https://tw.shop.com/search/header'+event.message.text
     
     get_data ={
-        'countryCurrency':'TWN',
-        'countryCode':'zh-TW'
+        'COUNTRY_MATCH':ture,
+        'AMOS_OKTOCACHE':false
     }
 
     get_cookie = requests.get(url_get,proxies={'https':'https://122.146.68.17:8080'},data=get_data)
