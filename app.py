@@ -46,7 +46,7 @@ def handle_message(event):
     print(resp)
     print(resp.status_code)
 
-    line_bot_api.reply_message(event.reply_token, a)
+    line_bot_api.reply_message(event.reply_token, resp)
 
 
 import os
