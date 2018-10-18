@@ -32,5 +32,5 @@ headers = {
     'referer':'https://tw.shop.com/',
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'    
 }
-resp = requests.post(url_get,headers=headers,data=data,proxies={'https':'https://122.146.68.17:8080'})
+resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'https://122.146.68.17:8080'})
 print(resp.status_code)
