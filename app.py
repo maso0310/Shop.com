@@ -50,7 +50,7 @@ def handle_message(event):
 
     print(resp.status_code)
 
-    line_bot_api.reply_message(event.reply_token, resp.text)
+    line_bot_api.reply_message(event.reply_token, SentMassageText='It\'s work!')
 
 
 import os
