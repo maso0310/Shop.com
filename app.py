@@ -36,7 +36,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    url_get = "https://tw.shop.com/maso0310"
+    url_get = "https://tw.shop.com/"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
 
     get_cookie = requests.get(url_get)
