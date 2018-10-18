@@ -73,7 +73,7 @@ def handle_message(event):
     print(resp.status_code)
     resp_soup = BeautifulSoup(resp.text,'html.parser')
     price = resp_soup.find('div','product-results__final-price-m')
-    print(price)
+    print(price[0:10])
     line_bot_api.reply_message(event.reply_token, SentMassageText='It\'s work!')
 
 
