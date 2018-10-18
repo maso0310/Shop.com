@@ -49,7 +49,7 @@ def handle_message(event):
     promoSetMenuId = soup_get.find(id='promoSetMenuId')['value']
     pageURL = soup_get.find(id='pageURL')['value']
     copyUrlDirections = soup_get.find(id='copyUrlDirections')['value']
-    service-site-url = soup_get.find(id='service-site-url')['value']
+#    service-site-url = soup_get.find(id='service-site-url')['value']
     data = {
         'st':'HTC',
         'sy':'product',
