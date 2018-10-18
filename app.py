@@ -37,8 +37,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     url = 'https://tw.shop.com/maso0310/search'+event.message.text
-    resp = requests.get(url,proxies={'http':'http://27.120.89.131:8080'})
-    print(resp)
+    resp = requests.get(url,proxies={'http':'http://220.135.202.15:42669'})
+
     print(resp.status_code)
 
     line_bot_api.reply_message(event.reply_token, resp)
