@@ -42,8 +42,8 @@ def handle_message(event):
     randdom_header = random.choice(UserAgent)
     print(randdom_header)
 
-    resp = requests.get(url , headers = randdom_header)
-    print(resp.text)
+    resp = requests.get(url)
+    print(resp)
     print(resp.status_code)
 
     line_bot_api.reply_message(event.reply_token, a)
