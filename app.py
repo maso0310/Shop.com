@@ -45,7 +45,7 @@ def handle_message(event):
     siteID = soup_get.find(id='siteID')['value']
     countryCode = soup_get.find(id='countryCode')['value']
     countryCurrency = soup_get.find(id='countryCurrency')['value']
-    currency-template = soup_get.find(id='coucurrency-templatentryCode')['value']
+    currency-template = soup_get.find(id='currency-template')['value']
     promoSetMenuId = soup_get.find(id='promoSetMenuId')['value']
     pageURL = soup_get.find(id='pageURL')['value']
     copyUrlDirections = soup_get.find(id='copyUrlDirections')['value']
