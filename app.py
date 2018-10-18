@@ -42,6 +42,7 @@ def handle_message(event):
     get_cookie = requests.get(url_get)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
+
     siteID = soup_get.find(id='siteID')['value']
     countryCode = soup_get.find(id='countryCode')['value']
     countryCurrency = soup_get.find(id='countryCurrency')['value']
@@ -69,6 +70,9 @@ def handle_message(event):
     }
     resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'https://122.146.68.17:8080'})
     print(resp.status_code)
+    resp_soup = BeautifulSoup(resp.text'html,parser')
+    price = resp_soup.find('div','product-results__final-price-m')
+    print(price)
     line_bot_api.reply_message(event.reply_token, SentMassageText='It\'s work!')
 
 
