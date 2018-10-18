@@ -44,7 +44,7 @@ def handle_message(event):
         'AMOS_OKTOCACHE':'false'
     }
 
-    get_cookie = requests.get(url_get,proxies={'https':'https://122.146.68.17:8080'},data=get_data)
+    get_cookie = requests.get(url_get,data=get_data)
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
