@@ -46,8 +46,7 @@ def handle_message(event):
         'referer':'https://tw.shop.com/',
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'    
     }
-    resp = requests.post(url,headers=headers,data=data,proxies={'https':'https://220.135.202.15:42669'})
-
+    resp = requests.post(url,headers=headers,data=data,proxies={'http':'http://220.135.202.15:42669'})
     print(resp.status_code)
 
     line_bot_api.reply_message(event.reply_token, SentMassageText='It\'s work!')
