@@ -38,7 +38,7 @@ def callback():
 def handle_message(event):
     url_get = "https://tw.shop.com/maso0310"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
-
+    print(url_get.text)
     get_cookie = requests.get(url_get)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
