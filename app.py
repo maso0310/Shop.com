@@ -44,9 +44,7 @@ def handle_message(event):
     }
     get_data ={
         'COUNTRY_MATCH':'ture',
-        'AMOS_OKTOCACHE':'false',
-        'JSESSIONID':'C985F3F68FA056A8DACE517A18A5260A',
-        'CC_PORTALID':'1345008'
+        'AMOS_OKTOCACHE':'false'
     }
 
     get_cookie = requests.get(url_get,data=get_data,headers=get_headers,timeout=3600)
