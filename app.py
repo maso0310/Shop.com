@@ -38,16 +38,11 @@ def callback():
 def handle_message(event):
     url_get = "https://tw.shop.com/maso0310"
     url_post = 'https://tw.shop.com/search/header'+event.message.text
-    get_headers = {
-        'accept-language':'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
-    }
     get_data ={
-        'COUNTRY_MATCH':'ture',
-        'AMOS_OKTOCACHE':'false'
+        'COUNTRY_MATCH':'ture'
     }
 
-    get_cookie = requests.get(url_get,data=get_data,headers=get_headers,proxies={'https':'https://59.127.187.73:44068'},timeout=3600)
+    get_cookie = requests.get(url_get,data=get_data)
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
@@ -69,15 +64,14 @@ def handle_message(event):
         #'currency-template':currency-template,
         'promoSetMenuId':promoSetMenuId,
         'pageURL':pageURL,
-        'copyUrlDirections':copyUrlDirections,
-
+        'copyUrlDirections':copyUrlDirections
     }
     headers = {
         'referer':'https://tw.shop.com/',
         'Set-Cookie':'bm_mi=4DF817D9AA6A52D203AE7B7C771D88F1~1sMJHW9TcIHLUumH+Wq2QEWs16dq00CKeQ6XIPi0cYi9j/PWEpOQzDajd0hfHZABB9XAJ8nF8+ZTT0yyhFGHGbcatJXmvgJg7q21eHNanECaAXqqQ+71tLNA00xqStOu2SVrV3JL1iqTNC1matdxHNpJdviyu0pMlV0BXtRHDrkRyKaTTkymk3es+3T8od9WUJNsUVC1IHGu3A73cbKb1A==; Domain=.shop.com; Path=/; Max-Age=7111; HttpOnly',
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'    
     }
-    resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'://59.127.187.73:44068'},timeout=3600)
+    resp = requests.post(url_post,headers=headers,data=data,proxies={'https':'https://220.135.50.138:40523'},timeout=3600)
     print(resp.status_code)
     resp_soup = BeautifulSoup(resp.text,'html.parser')
     price = resp_soup.find('div','product-results__final-price-m')
