@@ -49,7 +49,7 @@ def handle_message(event):
         'CC_PORTALID':'1345008'
     }
 
-    get_cookie = requests.get(url_get,data=get_data,headers=get_headers,proxies={'https':'https://220.130.205.58:8080'},timeout=3600)
+    get_cookie = requests.get(url_get,data=get_data,headers=get_headers,timeout=3600)
     print(get_cookie.text)
     soup_get = BeautifulSoup(get_cookie.text,'html.parser')
     print(get_cookie.status_code)
